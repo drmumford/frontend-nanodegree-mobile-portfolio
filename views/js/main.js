@@ -18,6 +18,7 @@ cameron *at* udacity *dot* com
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {
+  "maxNumberOfMeats" : 4,
   "meats": [
     "Pepperoni", "Sausage", "Fennel Sausage", "Spicy Sausage", "Chicken", "BBQ Chicken",
     "Chorizo", "Chicken Andouille", "Salami", "Tofu", "Bacon", "Canadian Bacon",
@@ -26,6 +27,7 @@ var pizzaIngredients = {
     "Coppa", "Pancetta", "Bresola", "Lox", "Guanciale", "Chili", "Beef Jerky",
     "Pastrami", "Kielbasa", "Scallops", "Filet Mignon"
   ],
+  "maxNumberOfNonMeats": 3,
   "nonMeats": [
     "White Onions", "Red Onions", "Sauteed Onions", "Green Peppers", "Red Peppers",
     "Banana Peppers", "Ghost Peppers", "Habanero Peppers", "Jalapeno Peppers", "Stuffed Peppers",
@@ -35,6 +37,7 @@ var pizzaIngredients = {
     "Asparagus", "Caramelized Onions", "Mango", "Garlic", "Olives", "Cauliflower",
     "Polenta", "Fried Egg", "Zucchini", "Hummus"
   ],
+  "maxNumberOfCheeses": 2,
   "cheeses": [
     "American Cheese", "Swiss Cheese", "Goat Cheese", "Mozzarella Cheese", "Parmesean Cheese",
     "Velveeta Cheese", "Gouda Cheese", "Muenster Cheese", "Applewood Cheese", "Asiago Cheese",
@@ -240,9 +243,9 @@ var ingredientItemizer = function(string) {
 var makeRandomPizza = function() {
   var pizza = "";
 
-  var numberOfMeats = Math.floor(Math.random() * 4);
-  var numberOfNonMeats = Math.floor(Math.random() * 3);
-  var numberOfCheeses = Math.floor(Math.random() * 2);
+  var numberOfMeats = Math.floor(Math.random() * pizzaIngredients.maxNumberOfMeats);
+  var numberOfNonMeats = Math.floor(Math.random() * pizzaIngredients.maxNumberOfNonMeats);
+  var numberOfCheeses = Math.floor(Math.random() * pizzaIngredients.maxNumberOfCheeses);
 
   for (var i = 0; i < numberOfMeats; i++) {
     pizza = pizza + ingredientItemizer(selectRandomMeat());
