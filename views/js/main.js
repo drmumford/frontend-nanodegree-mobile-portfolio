@@ -370,11 +370,16 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClassName('mover');
   var scrollTop = document.body.scrollTop / 1250;
-  for (var i = 0, length = items.length; i < length; i++) {
-    var phase = Math.sin(scrollTop + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  var phaseArray = [
+    100 * Math.sin(scrollTop),
+    100 * Math.sin(scrollTop + 1),
+    100 * Math.sin(scrollTop + 2),
+    100 * Math.sin(scrollTop + 3),
+    100 * Math.sin(scrollTop + 4),
+  ];
+  for (var i = 0, length = movingPizzasArray.length; i < length; i++) {
+    movingPizzasArray[i].style.left = movingPizzasArray[i].basicLeft + phaseArray[i % 5] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -390,10 +395,13 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
-// Generates the sliding pizzas when the page loads.
+// Generates the sliding pizzas when the page loads. A global array is
+// created that caches references to all the pizzas to be used to update
+// the pizza locations when the scrollbar is moved.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  movingPizzasArray = [];
   for (var i = 0; i < 120; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -403,6 +411,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzasArray.push(elem);
   }
   updatePositions();
 });
