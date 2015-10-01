@@ -365,12 +365,27 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
+var lastScrollTop = 0; // top of page.
+var scrolling = false;
+
+function OnScroll() {
+  lastScrollTop = document.body.scrollTop;
+  requestUpdatePositions();
+}
+
+function requestUpdatePositions() {
+  if (!scrolling) {
+    requestAnimationFrame(updatePositions);
+  }
+  scrolling = true;
+}
+
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var scrollTop = document.body.scrollTop / 1250;
+  var scrollTop = lastScrollTop / 1250;
   var phaseArray = [
     100 * Math.sin(scrollTop),
     100 * Math.sin(scrollTop + 1),
@@ -381,6 +396,8 @@ function updatePositions() {
   for (var i = 0, length = movingPizzasArray.length; i < length; i++) {
     movingPizzasArray[i].style.left = movingPizzasArray[i].basicLeft + phaseArray[i % 5] + 'px';
   }
+
+  scrolling = false;
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -393,7 +410,7 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+window.addEventListener('scroll', OnScroll);
 
 // Generates the sliding pizzas when the page loads. A global array is
 // created that caches references to all the pizzas to be used to update
@@ -413,5 +430,5 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#movingPizzas1").appendChild(elem);
     movingPizzasArray.push(elem);
   }
-  updatePositions();
+  OnScroll();
 });
