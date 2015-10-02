@@ -412,14 +412,22 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', OnScroll);
 
-// Generates the sliding pizzas when the page loads. A global array is
-// created that caches references to all the pizzas to be used to update
-// the pizza locations when the scrollbar is moved.
+// Generates the sliding pizzas when the page loads.
+//
+// Note: Only 48 pizzas are generated because at normal
+// zoom factors, this is a sufficient number of rows to
+// cover the whole page vertically with moving pizzas.
+//
+// Note: A global array is created that caches references
+// to all the moving pizzas so it be used to update the
+// pizza locations when the scrollbar is moved. This is
+// more efficient than fetching these references from the
+// DOM each time the scrollbar is moved.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   movingPizzasArray = [];
-  for (var i = 0; i < 120; i++) {
+  for (var i = 0; i < 48; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
