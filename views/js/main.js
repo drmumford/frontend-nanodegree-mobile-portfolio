@@ -391,7 +391,7 @@ function updatePositions() {
     100 * Math.sin(scrollTop + 1),
     100 * Math.sin(scrollTop + 2),
     100 * Math.sin(scrollTop + 3),
-    100 * Math.sin(scrollTop + 4),
+    100 * Math.sin(scrollTop + 4)
   ];
   for (var i = 0, length = movingPizzasArray.length; i < length; i++) {
     movingPizzasArray[i].style.left = movingPizzasArray[i].basicLeft + phaseArray[i % 5] + 'px';
