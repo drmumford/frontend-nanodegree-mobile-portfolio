@@ -9,7 +9,7 @@
 
   <link rel="icon" href="images/udacity.png">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="../css/bootstrap-grid.css">
 </head>
 
 <body>
@@ -43,7 +43,10 @@
     </div>
     <div id="callToAction" class="row">
       <div class="col-md-4">
-        <img src="images/pizzeria.jpg" class="img-responsive" alt="Paisano's_Pizzeria"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+        <!-- Image credit: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
+        <img src="images/pizzeria-800.jpg" class="img-responsive" alt="Paisano's_Pizzeria"
+          srcset="images/pizzeria-800.jpg 800w, images/pizzeria-600.jpg 600w, images/pizzeria-400.jpg 400w"
+          sizes="(min-width: 400px) 100vw">
       </div>
       <div class="col-md-8">
         <div class="row">
@@ -144,7 +147,7 @@
     </div>
     <div id="footer" class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</div>
   </div>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/main.min.js"></script>
 </body>
 
 </html>
