@@ -72,15 +72,31 @@ module.exports = function(grunt) {
           'js/perfmatters.min.js': ['js/perfmatters.js']
         }
       }
-    }
+    },
+
+    htmlmin: {
+      src: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          'index.html': 'src/index.html', // 'destination': 'source'
+          'project-2048.html': 'src/project-2048.html',
+          'project-mobile.html': 'src/project-mobile.html',
+          'project-webperf.html': 'src/project-webperf.html'
+        }
+      }
+    },
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-mkdir');
   grunt.registerTask('default', [
-    'clean', 'mkdir', 'copy', 'responsive_images', 'uglify']);
+    'clean', 'mkdir', 'copy', 'responsive_images', 'uglify', 'htmlmin']);
 };
