@@ -66,10 +66,10 @@ module.exports = function(grunt) {
       options: {
         mangle: true
       },
-      my_target: {
+      all: {
         files: {
-          'views/js/main.min.js': ['views/js/main.js'],
-          'js/perfmatters.min.js': ['js/perfmatters.js']
+          'views/js/main.min.js': 'views/js/main.js', // 'destination': 'source'
+          'js/perfmatters.min.js': 'js/perfmatters.js'
         }
       }
     },
@@ -90,14 +90,33 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      src: {
+        files: {
+          'css/style.min.css': ['src/css/bootstrap-grid.css', 'src/css/style.css'],
+          'css/print.min.css': 'src/css/print.css',
+          'views/css/style.min.css': ['src/css/bootstrap-grid.css', 'src/views/css/style.css']
+        }
+      }
+    },
+
+    jshint: {
+      all: ['Gruntfile.js', 'js/perfmatters.js', 'views/js/main.js']
+    }
+
   });
 
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-mkdir');
-  grunt.registerTask('default', [
-    'clean', 'mkdir', 'copy', 'responsive_images', 'uglify', 'htmlmin']);
+
+  grunt.registerTask('images', ['clean', 'mkdir', 'copy', 'responsive_images']);
+  grunt.registerTask('minify', ['uglify', 'htmlmin', 'cssmin']);
+
+  grunt.registerTask('default', ['jshint', 'images', 'minify']);
 };
