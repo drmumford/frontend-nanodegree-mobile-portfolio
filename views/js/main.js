@@ -18,7 +18,7 @@ cameron *at* udacity *dot* com
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {
-  "maxNumberOfMeats" : 4,
+  "maxNumberOfMeats": 4,
   "meats": [
     "Pepperoni", "Sausage", "Fennel Sausage", "Spicy Sausage", "Chicken", "BBQ Chicken",
     "Chorizo", "Chicken Andouille", "Salami", "Tofu", "Bacon", "Canadian Bacon",
@@ -52,7 +52,7 @@ var pizzaIngredients = {
   "crusts": [
     "White Crust", "Whole Wheat Crust", "Flatbread Crust", "Stuffed Crust"
   ]
-}
+};
 
 // Here are arrays of all possible pizza names.
 var pizzaNames = {
@@ -200,7 +200,7 @@ var pizzaNames = {
     "Proton", "Experiment", "Photon", "Apparatus", "Universe", "Gravity", "Dark Matter",
     "Constellation", "Circuit", "Asteroid"
   ]
-}
+};
 
 // Chooses random adjective and random noun
 function randomName() {
@@ -263,7 +263,7 @@ var makeRandomPizza = function() {
 
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function(i) {
-  var bar = 
+  var pizza =
     '<div id="pizza' + i + '" class="randomPizzaContainer" style="width:33.33%;height:325px;">' +
       '<div class="col-md-6">' +
         '<img src="images/pizza.png" class="img-responsive">' +
@@ -274,7 +274,7 @@ var pizzaElementGenerator = function(i) {
       '</div>' +
     '</div>';
 
-  return bar;
+  return pizza;
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
