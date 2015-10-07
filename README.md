@@ -17,10 +17,10 @@ Goals
 -----
 
 The goals of the final project are to achieve:
-* optimize [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=drmumford.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F) score for index.html, and
+* optimize <a href="https://developers.google.com/speed/pagespeed/insights/?url=drmumford.github.io%2Ffrontend-nanodegree-mobile-portfolio%2F" target="_blank">PageSpeed Insights</a> score for index.html, and
 * optimize Frames per Second for the pizza.html page.
 
-The project will be evaluated per this [rubric](http://drmumford.github.io/frontend-nanodegree-mobile-portfolio/P4_Rubric.pdf).
+The project will be evaluated per the <a href="http://drmumford.github.io/frontend-nanodegree-mobile-portfolio/P4_Rubric.pdf" target="_blank">Project 4 Rubric</a>.
 
 Submission
 ----------
