@@ -68,8 +68,8 @@ module.exports = function(grunt) {
       },
       all: {
         files: {
-          'views/js/main.min.js': 'views/js/main.js', // 'destination': 'source'
-          'js/perfmatters.min.js': 'js/perfmatters.js'
+          'views/js/main.min.js': 'src/views/js/main.js', // 'destination': 'source'
+          'js/perfmatters.min.js': 'src/js/perfmatters.js'
         }
       }
     },
