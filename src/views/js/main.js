@@ -211,8 +211,7 @@ function randomName() {
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
-  var randomMeat = pizzaIngredients.meats[Math.floor(Math.random() * pizzaIngredients.meats.length)];
-  return randomMeat;
+  return pizzaIngredients.meats[Math.floor(Math.random() * pizzaIngredients.meats.length)];
 };
 
 var selectRandomNonMeat = function() {
