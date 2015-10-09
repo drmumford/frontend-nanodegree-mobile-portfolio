@@ -5,10 +5,7 @@ This is the 4th project in Udacity's Frontend Web Developer Nanodegree curriculu
 to take an underperforming website and make its pages render as quickly as possible by applying the techniques
 learned in Udacity's [Critical Rendering Path](https://www.udacity.com/course/ud884) course.
 
-Website Performance Optimization course by [Udacity](https://www.udacity.com/course/website-performance-optimization--ud884)
-Browser Rendering Optimization course by [Udacity](https://www.udacity.com/course/browser-rendering-optimization--ud860).
-
-These classes cover optimizing the set of steps, i.e. the Critical Rendering Path, a browser takes to convert
+This course covers optimizing the set of steps, i.e. the Critical Rendering Path, a browser takes to convert
 HTML, CSS, and JavaScript into a living, breathing website. Google's [Dev Tools](https://developers.google.com/web/tools/chrome-devtools/)
 are also covered. This set set of web authoring and debugging tools built into Google Chrome help developer's
 efficiently track down layout issues, set JavaScript breakpoints, and get insights for code optimization.
@@ -25,13 +22,14 @@ The project will be evaluated per the <a href="http://drmumford.github.io/fronte
 Submission
 ==========
 
-View the otimized project [here](http://drmumford.github.io/frontend-nanodegree-mobile-portfolio/).
+View the optimized project <a href="http://drmumford.github.io/frontend-nanodegree-mobile-portfolio/" target="_blank">here</a>.
 
 View the source code by selecting either 'Clone in Desktop' or 'Download ZIP' options above.
 
 ## Optimizations
 
 ### Optimize PageSpeed Insights Score for index.html
+1. Follow recommendations from Google PageSpeed Insights
 1. Image minification
 1. HTML, CSS, Javascript minification
 1. Moved CSS to be inline
