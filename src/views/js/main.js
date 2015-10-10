@@ -383,16 +383,17 @@ function requestUpdatePositions() {
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
+  var i = 0,
+      scrollTop = lastScrollTop / 1250,
+      phaseArray = [];
 
-  var scrollTop = lastScrollTop / 1250;
-  var phaseArray = [
-    100 * Math.sin(scrollTop),
-    100 * Math.sin(scrollTop + 1),
-    100 * Math.sin(scrollTop + 2),
-    100 * Math.sin(scrollTop + 3),
-    100 * Math.sin(scrollTop + 4)
-  ];
-  for (var i = 0, length = movingPizzasArray.length; i < length; i++) {
+  // Build an array of five phase positions.
+  for (; i < 5; i++) {
+    phaseArray.push(100 * Math.sin(scrollTop + i));
+  }
+
+  // Update each pizza with the new phase position.
+  for (i = 0, length = movingPizzasArray.length; i < length; i++) {
     movingPizzasArray[i].style.left = movingPizzasArray[i].basicLeft + phaseArray[i % 5] + 'px';
   }
 
